@@ -1,29 +1,51 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi primera aplicacion con PHP</title>
-    <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" href="style.css">
+    <title>REGISTRO FAMILIAR</title>
 </head>
 <body>
     <center>
-    <h1>Soy un encabezado de HTML</h1>
-    <?php
-        #Esto es un script de PHP
-        //Comments a line
-        /*Comments multiple 
-        lines */
-        //Variables siempre comienzan con "$"
-        //PHP no es tipado, el tipo de dato se crea con la asignación 
-        $nombre = "Pan";
-        $mensaje = "Mi primera aplicacion en PHP";
-        echo "<h2>Hola Mundo desde PHP</h2>";
-        echo "<h3>Bienvenido $nombre</h3><h4>$mensaje</h4>";
-    ?>
-    <ul>
-    <a href="pagina2.php"><li>Formularios</li></a>
-    </ul>
-    </center>
+<div class="container">
+    <h1>REGISTRO FAMILIAR</h1>
+
+    <!-- Formulario para registrar -->
+    <form action="registrar.php" method="post" enctype="multipart/form-data">
+        <label for="nombre">NOMBRE:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <p>
+        <label for="parentesco">PARENTESCO:</label>
+        <input type="text" id="parentesco" name="parentesco" required>
+
+        <p>
+        <label for="foto">FOTO:</label>
+        <input type="file" id="foto" name="foto" accept="image/*" required>
+
+        <button type="submit" name="accion" value="registrar">REGISTRAR</button>
+    </form>
+
+    <!-- Formulario para eliminar -->
+    <form action="eliminar.php" method="post">
+        <label for="idEliminar">ID PARA ELIMINAR:</label>
+        <input type="text" id="idEliminar" name="id" required>
+        <button type="submit" name="accion" value="eliminar">ELIMINAR</button>
+    </form>
+
+    <!-- Formulario para ver listado familiar -->
+    <form action="listado_familiar.php" method="post">
+        <button type="submit" name="accion" value="listado_familiar">LISTADO FAMILIAR</button>
+    </form>
+
+    <!-- Formulario para modificar -->
+    <form action="modificar.php" method="post">
+        <label for="idModificar">ID PARA MODIFICAR:</label>
+        <input type="text" id="idModificar" name="id" required>
+        <button type="submit" name="accion" value="modificar">MODIFICAR</button>
+    </form>
+</center>
+</div>
 </body>
 </html>
